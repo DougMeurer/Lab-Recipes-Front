@@ -10,13 +10,13 @@ const api = axios.create({ baseURL: apiURLs[process.env.NODE_ENV] }); //process.
 api.interceptors.request.use((config) => {
   const loggedUserJSON = localStorage.getItem("loggedUser"); // gets user in JSON format
 
-  const loggedUserParsed = JSON.parse(loggedUserJSON); // transforms JSON format user in OBJ
+  const loggedUserParsed = JSON.parse(loggedUserJSON || '""'); // transforms JSON format user in OBJ
 
-  console.logo(config.headers);
+  console.log(config.headers);
   if (loggedUserParsed.token) {
     config.headers = { Authorization: `Bearer ${loggedUserParsed.token}` };
   }
-  console.logo(config.headers);
+  console.log(config.headers);
   return config;
 });
 
