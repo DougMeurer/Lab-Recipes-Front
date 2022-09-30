@@ -10,7 +10,6 @@ function HomePage() {
   const [user, setUser] = useState();
   const [reload, setReload] = useState(true);
 
-
   useEffect(() => {
     setloading(true);
     async function allRecipes() {
@@ -27,7 +26,6 @@ function HomePage() {
     }
     allRecipes();
   }, [reload]);
-
 
   async function addToDislikes(recipeId) {
     try {
